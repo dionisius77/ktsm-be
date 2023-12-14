@@ -1,0 +1,56 @@
+syntax = "proto3";
+package auth;
+
+message GetUserRequest {
+  string id = 1;
+}
+
+message GetManagementResponse {
+  string id = 1;
+  string email = 2;
+  string username = 3;
+}
+
+message GetBranchResponse {
+  string id = 1;
+  string email = 2;
+  string username = 3;
+  string operatingAreaId = 4;
+}
+
+message CreateBranchRequest {
+  string email = 1;
+  string operatingAreaId = 2;
+}
+
+message CreateBranchResponse {
+  string id = 1;
+}
+
+message OperatingArea {
+  string id = 1;
+  string name = 2;
+}
+
+message Branch {
+  string id = 1;
+  string email = 2;
+  string username = 3;
+  string operatingAreaId = 4;
+  OperatingArea operatingArea = 5;
+}
+
+message AllBranch {
+  repeated GetBranchResponse res = 1;
+}
+
+message GetAllBranchReq {
+  string userId = 1;
+}
+
+service AuthService {
+  rpc GetManagement (GetUserRequest) returns (GetManagementResponse) {};
+  rpc GetBranch (GetUserRequest) returns (GetBranchResponse) {};
+  rpc CreateBranch (CreateBranchRequest) returns (CreateBranchResponse) {};
+  rpc GetAllBranch (GetAllBranchReq) returns (AllBranch) {};
+}
