@@ -1,5 +1,6 @@
 syntax = "proto3";
 package auth;
+import "google/protobuf/empty.proto";
 
 message GetUserRequest {
   string id = 1;
@@ -52,5 +53,5 @@ service AuthService {
   rpc GetManagement (GetUserRequest) returns (GetManagementResponse) {};
   rpc GetBranch (GetUserRequest) returns (GetBranchResponse) {};
   rpc CreateBranch (CreateBranchRequest) returns (CreateBranchResponse) {};
-  rpc GetAllBranch (GetAllBranchReq) returns (AllBranch) {};
+  rpc GetAllBranch (google.protobuf.Empty) returns (AllBranch) {};
 }

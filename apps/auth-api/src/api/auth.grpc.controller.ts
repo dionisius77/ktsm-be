@@ -33,7 +33,7 @@ export class AuthGrpcController {
   }
 
   @GrpcMethod("AuthService", "GetAllBranch")
-  async getAllBranch(body: { userId: string }) {
+  async getAllBranch(body: {}) {
     const branch = await this.authService.getAllBranchGrpc();
     return { res: branch };
   }

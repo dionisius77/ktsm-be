@@ -17,7 +17,5 @@ export interface AuthServiceClient {
   getManagement: (body: { id: string }) => Observable<Management>;
   getBranch: (body: { id: string }) => Observable<Branch>;
   createBranch: (body: CreateBranchReqI) => Observable<{ id: string }>;
-  getAllBranch: (body: {
-    userId: string;
-  }) => Observable<{ res: Array<Branch> }>;
+  getAllBranch: (body: {}) => Observable<{ res: Array<Branch> }>;
 }

@@ -154,7 +154,7 @@ export class ManagementAuthService implements OnModuleInit {
 
   public getAllBranch = async (): Promise<Branch[]> => {
     const branch = await this.authService
-      .getAllBranch({ userId: "random" })
+      .getAllBranch({})
       .toPromise();
     return branch.res;
   };
