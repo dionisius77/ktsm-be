@@ -1,0 +1,23 @@
+import * as admin from "firebase-admin";
+
+admin.initializeApp({
+  credential: admin.credential.cert({
+    type: "service_account",
+    project_id: "diaragustiara",
+    private_key_id: "5b978f96f9aab938a39f9b715f2732c41bb48ded",
+    private_key:
+      "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCe38PicSYcmffS\nOToe6LIT+O3GHUolxlTXPRg7yHzISk3RLEkyY6yjjkpOj6fdHoNG8vYjzeYsTvSL\n5qqo55ZddzRMaD6bVijHbw/t8gTcSpOUw1sFSGuv7YwWKKZVB3FqouSfeioBFWjz\n0qz4QrkI8S0omN9HPBnd2EH5HdeymzIbeiTYN08hxY1lpYfMB3YT+eAwwqghU0JB\nslRrJWyObEh+9iYh7LO9ZxG9OXgS7oraZ3BvzOktkWQumGNsQJugATCvjgyCy0Qn\nVEvZtOExRHYBWnfTH1ZdrauegYKgejVrY16lE6viimQKXH0qEdLN95ySLNoCqWB2\nZ2VSmZyPAgMBAAECggEAPd4jmN25GrA2mm3gnUK+fhqU9W5YfodSaJMJCdbUCOcu\nkIMvaej4xKRXeWpl0yzbsFhS07SNqrmAb65+zNGKc5FFE3AQ2UrfDHLKgD2b+PEt\nsWO14UPHc7YMtGBWDYyddQpD/3qCOvPMcA6dfvv0tG++xy1o3YOhCwv4/PrLEWjT\nMm0mhzZGfaZX4qVPtAMNhXvI3wnaOB6MdETPVOdPSp+dS767Y7xdYihxuserR9zX\nz/gf8AryylQt9fCNb9c9Axuwc3NknxFTGZTpznSmbfhUS9t7LCqFVF7SOH/eMU+T\nL+GMZO0LCSJzmpQLjnzVm9h4nRtK6VioK1R8q0YyyQKBgQDLGmVt0He+w14w8lUn\nN2ZMBAbZJG1bOY7oc5t4QGdJjySfSkzdveIDl3E51vDrgojKe+II86t69ovCV4Dh\nQmRP2WyuSF0mdxjig45YqsBTuJAEX+5LVmdy1XZuPctTxd+ylBzXwzUou+DAfol4\nqs0kKfCTIrKIcSa8abgFOxEPYwKBgQDIQHaJi9kQy7uYgYF8PiKUDdRo1Oo6N8vZ\nI8qHSbOsJq61s187oHDKvsDpQDeJNVhiKQ6HQFEwiCSDvHHIhEXVSV3gDPli93Hh\ndIHbHY6ZYc592KzfhfCZTdqrDZL/XZcQw6rp9pvbZDzgNo3+QzgVFH5mjprUKj73\ngdmdn8uT5QKBgGONFahE5VzIsBN3xItLWUXrN1wZwcxUIxsHB25iyv3APugg6BpM\nJ0sxYNtD4qTdP6VYIYvXu/aygACLGW3QOBD3dpDagWYIPFdSumP1lf2zWkv6pXeh\n62TbAoi4mz/9nk8O0DBly1mi9WAE5ecSeSi/sd68xBuisqTpgLx3nj4XAoGAaodg\nh+uNnhHDym2apK2pV3nD9cDOmgn0t58CrtXWb05kwuSZVO8VEcZIec1fve5TBmUx\nBWKBzn+ebTZikXlMbRqKhhZg1PUt7/I64oXmxlHxt6D81iw6wlNYcIbYHGF9a72r\nvqsiXqQEfoKHJyw7OXudgpF6bEPNG35IdkH72sECgYEAkE0dcUP5eI7cmopwMf3I\nN0qt/5An1Q2Ndb8bT7J/gYSHuJvYQs8SqIQHIJjanrcBaX/RfkvYXW3xXRJe2dyq\npo2QTa5krM3I15ce/UsQOWu8UITxHitnAw+b3Ri2YD/j5a/KIvni6ht0FXtFnXP6\nkSCFxwYdVRKEXQ/w5pQyW7o=\n-----END PRIVATE KEY-----\n",
+    client_email:
+      "firebase-adminsdk-b5bfu@diaragustiara.iam.gserviceaccount.com",
+    client_id: "118312516803486383082",
+    auth_uri: "https://accounts.google.com/o/oauth2/auth",
+    token_uri: "https://oauth2.googleapis.com/token",
+    auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
+    client_x509_cert_url:
+      "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-b5bfu%40diaragustiara.iam.gserviceaccount.com",
+    universe_domain: "googleapis.com",
+  } as admin.ServiceAccount),
+});
+
+const dbFirestore = admin.firestore();
+export { dbFirestore };

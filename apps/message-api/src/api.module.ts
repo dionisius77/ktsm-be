@@ -3,21 +3,19 @@ import { ConfigModule } from "@nestjs/config";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { getEnvPath } from "./common/helper/env.helper";
 import { TypeOrmConfigService } from "./shared/typeorm/typeorm.service";
-import { ManagementAuthModule } from "./api/management/auth.module";
-import { GrpcModule } from "./api/grpc.module";
-import { BranchAuthModule } from "./api/branch/auth.module";
-import { SocketModule } from "./api/socket/socket.module";
+import { ManagementMessageModule } from "./api/management/message.module";
+import { ScheduleModule } from '@nestjs/schedule';
+import { BranchMessageModule } from "./api/branch/message.module";
 
 const envFilePath: string = getEnvPath(`${__dirname}/common/helper`);
 
 @Module({
   imports: [
+    ScheduleModule.forRoot(),
     ConfigModule.forRoot({ envFilePath, isGlobal: true }),
     TypeOrmModule.forRootAsync({ useClass: TypeOrmConfigService }),
-    ManagementAuthModule,
-    BranchAuthModule,
-    GrpcModule,
-    SocketModule,
+    ManagementMessageModule,
+    BranchMessageModule,
   ],
 })
 export class ApiModule {}

@@ -1,11 +1,6 @@
 import { Controller, Inject } from "@nestjs/common";
 import { GrpcMethod } from "@nestjs/microservices";
-import {
-  Branch,
-  CreateBranchReqI,
-  Management,
-  SuperAdmin,
-} from "@app/entities";
+import { Branch, CreateBranchReqI, Management } from "@app/entities";
 import { GrpcAuthService } from "./auth.grpc.service";
 
 @Controller()
@@ -27,7 +22,6 @@ export class AuthGrpcController {
 
   @GrpcMethod("AuthService", "CreateBranch")
   async createBranch(body: CreateBranchReqI): Promise<{ id: string }> {
-    console.log(body);
     const user = await this.authService.register(body);
     return user;
   }

@@ -142,6 +142,7 @@ export class ManagementAuthService implements OnModuleInit {
       .createBranch({
         email: body.email,
         operatingAreaId: body.operatingAreaId,
+        name: body.name,
       })
       .toPromise();
     if (!branchUser) {

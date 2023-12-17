@@ -1,11 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import {
-  Management,
-  CreateBranchReqI,
-  SuperAdmin,
-  Branch,
-} from "@app/entities";
+import { Management, CreateBranchReqI, Branch } from "@app/entities";
 import { Repository } from "typeorm";
 import { RpcException } from "@nestjs/microservices";
 import { randomBytes, scrypt } from "crypto";
@@ -29,7 +24,7 @@ export class GrpcAuthService {
   public async register(
     body: CreateBranchReqI,
   ): Promise<{ id: string } | never> {
-    const { email, operatingAreaId }: CreateBranchReqI = body;
+    const { email, operatingAreaId, name }: CreateBranchReqI = body;
     const user: Branch = await this.branchRepository.findOne({
       where: { email },
     });
@@ -41,6 +36,7 @@ export class GrpcAuthService {
     const hashedPassword = await this.encodePassword("SuperPassword123!");
     const newUser = new Branch();
     newUser.email = email;
+    newUser.name = name;
     newUser.operatingAreaId = operatingAreaId;
     newUser.password = hashedPassword;
     newUser.createdAt = new Date();

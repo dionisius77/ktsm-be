@@ -31,13 +31,13 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
 
   const configSwagger = new DocumentBuilder()
-    .setTitle("KTSM User Auth Service")
+    .setTitle("KTSM Core & User Auth Service")
     .setDescription("API for User data")
     .setVersion("1.0")
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, configSwagger);
-  fs.writeFileSync("./swagger-spec.json", JSON.stringify(document));
+
   SwaggerModule.setup("api-docs", app, document);
 
   await app.listen(port, () => {

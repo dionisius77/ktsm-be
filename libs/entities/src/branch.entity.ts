@@ -1,4 +1,4 @@
-import { ApiProperty } from "@nestjs/swagger";
+import { ApiHideProperty, ApiProperty } from "@nestjs/swagger";
 import { Exclude } from "class-transformer";
 import {
   BaseEntity,
@@ -28,9 +28,21 @@ class Branch extends BaseEntity {
   public operatingAreaId?: string;
 
   @ApiProperty()
+  @Column({ type: "text", nullable: true })
+  public name: string;
+
+  @ApiProperty()
+  @Column({ type: "text", nullable: true })
+  public socketId: string;
+
+  @ApiHideProperty()
   @Exclude()
   @Column({ type: "text", nullable: true })
   public password: string;
+
+  @ApiProperty()
+  @Column({ type: "boolean", nullable: false, default: false })
+  public isOnline: boolean;
 
   @ApiProperty()
   @Column({ type: "timestamp", nullable: false, default: new Date() })

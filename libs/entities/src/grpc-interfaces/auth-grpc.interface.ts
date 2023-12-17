@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 export interface CreateBranchReqI {
   email: string;
   operatingAreaId: string;
+  name: string;
 }
 
 // export interface BranchResp {

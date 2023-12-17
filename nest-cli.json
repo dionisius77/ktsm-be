@@ -3,7 +3,7 @@
   "collection": "@nestjs/schematics",
   "sourceRoot": "./",
   "compilerOptions": {
-    "deleteOutDir": true,
+    "deleteOutDir": false,
     "tsConfigPath": "apps/auth-api/tsconfig.app.json"
   },
   "monorepo": true,
@@ -24,17 +24,17 @@
         ]
       }
     },
-    "parking-api": {
+    "message-api": {
       "type": "application",
-      "root": "apps/parking-api/src",
+      "root": "apps/message-api/src",
       "entryFile": "main",
-      "sourceRoot": "apps/parking-api/src",
+      "sourceRoot": "apps/message-api/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/parking-api/tsconfig.app.json",
+        "tsConfigPath": "apps/message-api/tsconfig.app.json",
         "assets": [
           {
             "include": "common/envs/*.env",
-            "outDir": "dist/apps/parking-api/src/common/helper"
+            "outDir": "dist/apps/message-api/src/common/helper"
           }
         ]
       }

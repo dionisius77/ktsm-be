@@ -56,6 +56,10 @@ export class CreateBranchDto {
   @IsEmail()
   public readonly email: string;
 
+  @ApiProperty({ default: "Cabang Cianjur" })
+  @IsString()
+  public readonly name: string;
+
   @ApiProperty({
     default: "0557d6ef-bc10-4a9a-967f-0520c3abeb55",
     description: "You can get operating area id, from get opreating area",

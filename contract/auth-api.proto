@@ -17,11 +17,14 @@ message GetBranchResponse {
   string email = 2;
   string username = 3;
   string operatingAreaId = 4;
+  string name = 5;
+  bool isOnline = 6;
 }
 
 message CreateBranchRequest {
   string email = 1;
   string operatingAreaId = 2;
+  string name = 3;
 }
 
 message CreateBranchResponse {
